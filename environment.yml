@@ -1,6 +1,4 @@
 name: SNPark
-channels:
-  - https://repo.anaconda.com/pkgs/snowflake
 dependencies:
   - numpy
   - pandas
@@ -8,3 +6,4 @@ dependencies:
   - plotly
   - openpyxl
   - snowflake-snowpark-python
+  - streamlit
