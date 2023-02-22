@@ -1,9 +1,8 @@
 name: SNPark
 dependencies:
-  - python=3.8
   - snowflake-snowpark-python
   - numpy
   - pandas
-  - plotly=5.6.0
+  - plotly
   - matplotlib
   - seaborn
