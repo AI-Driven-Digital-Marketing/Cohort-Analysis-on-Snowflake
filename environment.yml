@@ -1,9 +1,8 @@
-name: SnowPark
+name: SNPark
 channels:
   - https://repo.anaconda.com/pkgs/snowflake
 dependencies:
   - numpy
-  - datetime
   - pandas
   - matplotlib
   - plotly
