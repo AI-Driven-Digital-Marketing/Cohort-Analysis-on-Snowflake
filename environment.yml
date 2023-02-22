@@ -1,5 +1,6 @@
 name: SNPark
 dependencies:
+  - python=3.8
   - snowflake-snowpark-python
   - numpy
   - pandas
