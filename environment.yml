@@ -4,8 +4,6 @@ dependencies:
   - snowflake-snowpark-python
   - numpy
   - pandas
+  - plotly
   - matplotlib
   - seaborn
-  - pip
-  - pip:
-    - plotly
