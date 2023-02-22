@@ -4,6 +4,6 @@ dependencies:
   - snowflake-snowpark-python
   - numpy
   - pandas
-  - plotly
+  - plotly=5.6.0
   - matplotlib
   - seaborn
