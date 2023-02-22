@@ -1,0 +1,11 @@
+name: SnowPark
+channels:
+  - https://repo.anaconda.com/pkgs/snowflake
+dependencies:
+  - numpy
+  - datetime
+  - pandas
+  - matplotlib
+  - plotly
+  - openpyxl
+  - snowflake-snowpark-python
