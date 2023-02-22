@@ -4,7 +4,7 @@
 [![author](https://img.shields.io/badge/Author-Ziwei_Duan-blue.svg)](https://www.linkedin.com/in/ziwei-duan-create/) 
 
 ## Quick Portral
-### Assignment1:
+### Project2:
 | **--->** [1.]() |
 
 | **--->** [2.Website by Streamlit]() |
