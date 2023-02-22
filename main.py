@@ -87,7 +87,7 @@ def connect2snowflake():
     snowpark_version = VERSION
     return session
 session = connect2snowflake()
-
+session.sql('select TABLE_NAME from information_schema.tables').show()
 @st.cache_data
 def load_data():
 
