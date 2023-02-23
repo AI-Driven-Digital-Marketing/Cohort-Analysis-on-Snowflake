@@ -140,8 +140,12 @@ with st.expander("DataFrame"):
     food_df,retention = load_data()
     
     st.markdown(
-        '''Food-data''')
+        '''1.Food-data''')
     food_df
     st.markdown(
-        '''Retention''')
+        '''2.Retention''')
     retention
+    
+with st.expander("Visualization"):
+    
+    
