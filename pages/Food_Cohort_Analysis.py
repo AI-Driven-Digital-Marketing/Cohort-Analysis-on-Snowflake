@@ -138,5 +138,10 @@ def load_data():
 
 with st.expander("DataFrame"):
     food_df,retention = load_data()
+    
+    st.markdown(
+        '''Food-data''')
     food_df
+    st.markdown(
+        '''Retention''')
     retention
