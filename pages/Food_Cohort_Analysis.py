@@ -88,7 +88,46 @@ def load_data():
     food_df.columns = [x.lower() for x in food_df.columns]
     # write our codes here -- INFO Teams!
 
-    return food_df
+    #Date dtype specification
+    food_df= food_df.withColumn("OrderDate", to_date("OrderDateString", "yyyy-MM-dd"))
+    
+    # Define a window function to partition by CohortGroup and order by OrderPeriod
+    cohort_window = Window.partitionBy("CohortGroup").orderBy("OrderPeriod")
+
+    # Group the data by CohortGroup and OrderPeriod, and count the number of distinct users and orders
+    cohorts = df.groupBy("CohortGroup", "OrderPeriod") \
+                .agg(countDistinct("UserId").alias("TotalUsers"), 
+                     countDistinct("OrderId").alias("TotalOrders"), 
+                     sum("TotalCharges").alias("TotalRevenue"))
+
+    # Define a function to calculate the CohortPeriod
+    def cohort_period(df):
+        """
+        Creates a `CohortPeriod` column, which is the Nth period based on the user's first purchase.
+        """
+        return df.withColumn("CohortPeriod", (col("OrderPeriod").cast("long") - col("FirstOrderPeriod")) / 30 + 1)
+
+    # Join the cohorts dataframe with a new dataframe that contains the first order period for each user
+    cohorts = cohorts.join(
+        df.select("UserId", "OrderPeriod")
+          .groupBy("UserId")
+          .agg(collect_list("OrderPeriod").getItem(0).alias("FirstOrderPeriod")),
+        on="UserId"
+    )
+
+    # Calculate the CohortPeriod using the cohort_period function
+    cohorts = cohort_period(cohorts)
+
+    # Rename the columns to be more meaningful
+    cohorts = cohorts.selectExpr("CohortGroup", "OrderPeriod", "TotalUsers as TotalUsers",
+                                 "TotalOrders as TotalOrders", "TotalRevenue as TotalRevenue",
+                                 "CohortPeriod as CohortPeriod")
+
+    cohorts.show()
+    
+    
+    
+#     return food_df
 
 
 food_df = load_data()
