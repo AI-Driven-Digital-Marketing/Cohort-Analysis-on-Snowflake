@@ -137,6 +137,6 @@ def load_data():
     return food_df,retention
 
 with st.expander("DataFrame"):
-food_df,retention = load_data()
-food_df
-retention
+    food_df,retention = load_data()
+    food_df
+    retention
