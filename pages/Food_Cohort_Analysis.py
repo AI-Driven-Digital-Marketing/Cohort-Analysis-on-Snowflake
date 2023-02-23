@@ -91,9 +91,9 @@ def load_data():
     food_df["orderdate"] = pd.to_datetime(food_df["orderdate"]).dt.date
     food_df["pickupdate"] = pd.to_datetime(food_df["pickupdate"]).dt.date
     
-    df.set_index("UserId", inplace=True)
+    df.set_index("userid", inplace=True)
     df["CohortGroup"] = (
-        df.groupby(level=0)["OrderDate"].min().apply(lambda x: x.strftime("%Y-%m"))
+        df.groupby(level=0)["orderdate"].min().apply(lambda x: x.strftime("%Y-%m"))
     )
     df.reset_index(inplace=True)
     
