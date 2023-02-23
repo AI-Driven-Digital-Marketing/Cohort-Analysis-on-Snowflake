@@ -88,16 +88,17 @@ def load_data():
     food_df.columns = [x.lower() for x in food_df.columns]
     # Write our codes here -- INFO Teams!
     # Process data
+    ## String to Date type 
     food_df["orderdate"] = pd.to_datetime(food_df["orderdate"]).dt.date
     food_df["pickupdate"] = pd.to_datetime(food_df["pickupdate"]).dt.date
-    
+    ## Date period
     food_df["OrderPeriod"] = food_df.orderdate.apply(lambda x: x.strftime("%Y-%m"))
-    
+    ##
     food_df.set_index("userid", inplace=True)
-    food_df["CohortGroup"] = (
-        food_df.groupby(level=0)["orderdate"].min().apply(lambda x: x.strftime("%Y-%m"))
-    )
-    food_df.reset_index(inplace=True)
+#     food_df["CohortGroup"] = (
+#         food_df.groupby(level=0)["orderdate"].min().apply(lambda x: x.strftime("%Y-%m"))
+#     )
+#     food_df.reset_index(inplace=True)
     
     return food_df
 
