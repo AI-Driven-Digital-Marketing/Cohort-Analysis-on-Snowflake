@@ -88,17 +88,17 @@ def load_data():
     food_df.columns = [x.lower() for x in food_df.columns]
     # write our codes here -- INFO Teams!
 
-    #Date dtype specification
-    food_df= food_df.withColumn("OrderDate", to_date("OrderDateString", "yyyy-MM-dd"))
+#     #Date dtype specification
+#     food_df= food_df.withColumn("OrderDate", to_date("OrderDateString", "yyyy-MM-dd"))
     
-    # Define a window function to partition by CohortGroup and order by OrderPeriod
-    cohort_window = Window.partitionBy("CohortGroup").orderBy("OrderPeriod")
+#     # Define a window function to partition by CohortGroup and order by OrderPeriod
+#     cohort_window = Window.partitionBy("CohortGroup").orderBy("OrderPeriod")
 
-    # Group the data by CohortGroup and OrderPeriod, and count the number of distinct users and orders
-    cohorts = df.groupBy("CohortGroup", "OrderPeriod") \
-                .agg(countDistinct("UserId").alias("TotalUsers"), 
-                     countDistinct("OrderId").alias("TotalOrders"), 
-                     sum("TotalCharges").alias("TotalRevenue"))
+#     # Group the data by CohortGroup and OrderPeriod, and count the number of distinct users and orders
+#     cohorts = df.groupBy("CohortGroup", "OrderPeriod") \
+#                 .agg(countDistinct("UserId").alias("TotalUsers"), 
+#                      countDistinct("OrderId").alias("TotalOrders"), 
+#                      sum("TotalCharges").alias("TotalRevenue"))
 
 #     # Define a function to calculate the CohortPeriod
 #     def cohort_period(df):
@@ -127,8 +127,8 @@ def load_data():
     
     
     
-#     return food_df
-food_df=cohorts.show()
+    return food_df
+# food_df=cohorts.show()
 
-# food_df = load_data()
-# food_df
+food_df = load_data()
+food_df
