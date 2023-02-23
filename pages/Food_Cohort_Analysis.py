@@ -88,16 +88,16 @@ def load_data():
     food_df.columns = [x.lower() for x in food_df.columns]
     # write our codes here -- INFO Teams!
     # Process data
-    food_df["OrderPeriod"] = food_df.OrderDate.apply(lambda x: x.strftime("%Y-%m"))
-    food_df.set_index("UserId", inplace=True)
+#     food_df["OrderPeriod"] = food_df.OrderDate.apply(lambda x: x.strftime("%Y-%m"))
+#     food_df.set_index("UserId", inplace=True)
 
-    food_df["CohortGroup"] = (
-    food_df.groupby(level=0)["OrderDate"].min().apply(lambda x: x.strftime("%Y-%m"))
-    )
-    food_df.reset_index(inplace=True)
+#     food_df["CohortGroup"] = (
+#     food_df.groupby(level=0)["OrderDate"].min().apply(lambda x: x.strftime("%Y-%m"))
+#     )
+#     food_df.reset_index(inplace=True)
 #     return food_df
 
-with st.expander("Show the 'Food' data Frame"):
+with st.expander("Show the 'Food' Data Frame"):
     food_df = load_data()
     st.write(food_df)
     
