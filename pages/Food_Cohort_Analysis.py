@@ -80,32 +80,63 @@ def connect2snowflake():
     return session
 session = connect2snowflake()
 
+
+
 @st.cache_data
 def load_data():
 
     # Load data
     food_df = pd.DataFrame(session.table('FOOD').collect())
-    food_df.columns = [x.lower() for x in food_df.columns]
-    # Write our codes here -- INFO Teams!
-    # Process data
-    ## String to Date type 
-    food_df["orderdate"] = pd.to_datetime(food_df["orderdate"]).dt.date
-    food_df["pickupdate"] = pd.to_datetime(food_df["pickupdate"]).dt.date
-    ## Date period
-    food_df["OrderPeriod"] = food_df.orderdate.apply(lambda x: x.strftime("%Y-%m"))
-    ##
-    food_df.set_index("useid", inplace=True)
-    food_df["CohortGroup"] = (
-        food_df.groupby(level=0)["orderdate"].min().apply(lambda x: x.strftime("%Y-%m"))
-    )
-    food_df.reset_index(inplace=True)
+    food_df['ORDERDATE'] = pd.to_datetime(food_df['ORDERDATE'])
+    #food_df['PICKUPDATE'] = pd.to_datetime(food_df['PICKUPDATE'])
+    food_df = food_df.replace(" ",np.NaN)
+    food_df = food_df.fillna(food_df.mean(numeric_only=True))
+    #food_df.isna().sum()
+    food_df['TransactionMonth'] =food_df['ORDERDATE'].apply(lambda x: x.replace(day = 1))
+    # Grouping by customer_id and select the InvoiceMonth value
+    grouping = food_df.groupby('USERID')['TransactionMonth'] 
+
+    # Assigning a minimum InvoiceMonth value to the dataset
+    food_df['CohortMonth'] = grouping.transform('min')
     
-    return food_df
+    def get_date_int(df, column):
+        year = df[column].dt.year
+        month = df[column].dt.month
+        day = df[column].dt.day
+        return year, month, day
+    # Getting the integers for date parts from the `InvoiceDay` column
+    transcation_year, transaction_month, _ = get_date_int(food_df, 'TransactionMonth')
 
-with st.expander("Show the Data Frame"):
-    food_df = load_data()
-    st.write(food_df)
-    
-grouped = df.groupby(["CohortGroup", "OrderPeriod"])
+    # Getting the integers for date parts from the `CohortDay` column
+    cohort_year, cohort_month, _ = get_date_int(food_df, 'CohortMonth')
+    #  Get the  difference in years
+    years_diff = transcation_year - cohort_year
+
+    # Calculate difference in months
+    months_diff = transaction_month - cohort_month
+    food_df['CohortIndex'] = years_diff * 12 + months_diff  + 1 
+    # Counting daily active user from each chort
+    grouping = food_df.groupby(['CohortMonth', 'CohortIndex'])
 
 
+
+    # Counting number of unique customer Id's falling in each group of CohortMonth and CohortIndex
+    cohort_data = grouping['USERID'].apply(pd.Series.nunique)
+    cohort_data = cohort_data.reset_index()
+
+
+     # Assigning column names to the dataframe created above
+    cohort_counts = cohort_data.pivot(index='CohortMonth',
+                                     columns ='CohortIndex',
+                                     values = 'USERID')
+    cohort_sizes = cohort_counts.iloc[:,0]
+    retention = cohort_counts.divide(cohort_sizes, axis=0)
+    #retention.round(3)*100
+
+
+    return food_df,retention
+
+
+food_df,retention = load_data()
+food_df
+retention
