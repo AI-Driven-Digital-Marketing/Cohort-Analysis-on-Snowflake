@@ -93,11 +93,11 @@ def load_data():
     
     food_df["OrderPeriod"] = food_df.orderdate.apply(lambda x: x.strftime("%Y-%m"))
     
-#     food_df.set_index("userid", inplace=True)
-#     food_df["CohortGroup"] = (
-#         food_df.groupby(level=0)["orderdate"].min().apply(lambda x: x.strftime("%Y-%m"))
-#     )
-#     food_df.reset_index(inplace=True)
+    food_df.set_index("userid", inplace=True)
+    food_df["CohortGroup"] = (
+        food_df.groupby(level=0)["orderdate"].min().apply(lambda x: x.strftime("%Y-%m"))
+    )
+    food_df.reset_index(inplace=True)
     
     return food_df
 
