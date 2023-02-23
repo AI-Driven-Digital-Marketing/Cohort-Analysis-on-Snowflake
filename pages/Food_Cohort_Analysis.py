@@ -87,27 +87,8 @@ def load_data():
     food_df = pd.DataFrame(session.table('FOOD').collect())
     food_df.columns = [x.lower() for x in food_df.columns]
     # write our codes here -- INFO Teams!
-    df["OrderPeriod"] = df.OrderDate.apply(lambda x: x.strftime("%Y-%m"))
-    df.set_index("UserId", inplace=True)
-
-    df["CohortGroup"] = (
-    df.groupby(level=0)["OrderDate"].min().apply(lambda x: x.strftime("%Y-%m")))
-    
-    df.reset_index(inplace=True)
-    
-    #grouped = df.groupby(["CohortGroup", "OrderPeriod"])
-
-#     # count the unique users, orders, and total revenue per Group + Period
-#     cohorts = grouped.agg(
-#     {"UserId": pd.Series.nunique, "OrderId": pd.Series.nunique, "TotalCharges": np.sum}
-# )
-
-# # make the column names more meaningful
-#     cohorts.rename(columns={"UserId": "TotalUsers", "OrderId": "TotalOrders"}, inplace=True)
-#     cohorts.head()
     
     return food_df
 
 
 food_df = load_data()
-food_df
