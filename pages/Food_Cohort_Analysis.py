@@ -140,12 +140,11 @@ with st.expander("DataFrame"):
     food_df,retention = load_data()
     
     st.markdown(
-        '''1. Food-data''')
+        ''' 1. Food-data''')
     food_df
     st.markdown(
-        '''2. Retention''')
+        ''' 2. Retention''')
     retention
     
-with st.expander("Visualization"):
     
     
