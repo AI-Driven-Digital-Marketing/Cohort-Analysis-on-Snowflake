@@ -88,7 +88,7 @@ def load_data():
     food_df.columns = [x.lower() for x in food_df.columns]
 #   Write our codes here -- INFO Teams!
 #   Process data
-    food_df["OrderPeriod"] = food_df.OrderDate.apply(lambda x: x.strftime("%Y-%m"))
+    food_df["OrderDate"] = food_df.OrderDate.apply(lambda x: x.strftime("%Y-%m"))
 #     food_df.set_index("UserId", inplace=True)
 
 #     food_df["CohortGroup"] = (
