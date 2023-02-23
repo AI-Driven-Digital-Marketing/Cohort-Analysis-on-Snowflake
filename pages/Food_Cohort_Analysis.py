@@ -86,16 +86,9 @@ def load_data():
     # Load data
     food_df = pd.DataFrame(session.table('FOOD').collect())
     food_df.columns = [x.lower() for x in food_df.columns]
-#   Write our codes here -- INFO Teams!
-#   Process data
-    food_df["OrderDate"] = food_df.OrderDate.apply(lambda x: x.strftime("%Y-%m"))
-#     food_df.set_index("UserId", inplace=True)
-
-#     food_df["CohortGroup"] = (
-#     food_df.groupby(level=0)["OrderDate"].min().apply(lambda x: x.strftime("%Y-%m"))
-#     )
-#     food_df.reset_index(inplace=True)
-    
+    # Write our codes here -- INFO Teams!
+    # Process data
+   
     return food_df
 
 with st.expander("Show the 'Food' Data Frame"):
