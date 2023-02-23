@@ -89,5 +89,8 @@ def load_data():
     # write our codes here -- INFO Teams!
     
     return food_df
-food_df = load_data()
-food_df
+
+with st.expander("Show the 'Food' data Frame"):
+    food_df = load_data()
+    st.write(food_df)
+    
