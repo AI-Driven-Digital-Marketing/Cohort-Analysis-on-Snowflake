@@ -91,7 +91,17 @@ def load_data():
    
     return food_df
 
-with st.expander("Show the 'Food' Data Frame"):
+with st.expander("Show the Data Frame"):
     food_df = load_data()
     st.write(food_df)
     
+grouped = df.groupby(["CohortGroup", "OrderPeriod"])
+
+# count the unique users, orders, and total revenue per Group + Period
+cohorts = grouped.agg(
+    {"UserId": pd.Series.nunique, "OrderId": pd.Series.nunique, "TotalCharges": np.sum}
+)
+
+# make the column names more meaningful
+cohorts.rename(columns={"UserId": "TotalUsers", "OrderId": "TotalOrders"}, inplace=True)
+cohorts.head()
