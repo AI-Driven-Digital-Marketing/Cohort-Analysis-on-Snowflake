@@ -88,8 +88,8 @@ def load_data():
     food_df.columns = [x.lower() for x in food_df.columns]
     # Write our codes here -- INFO Teams!
     # Process data
-    food_df["orderdate"] = pd.to_datetime(food_df["orderdate"]).dt.date
-    food_df["pickupdate"] = pd.to_datetime(food_df["pickupdate"]).dt.date
+#     food_df["orderdate"] = pd.to_datetime(food_df["orderdate"]).dt.date
+#     food_df["pickupdate"] = pd.to_datetime(food_df["pickupdate"]).dt.date
 
     
     return food_df
