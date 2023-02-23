@@ -95,7 +95,7 @@ def load_data():
     food_df.groupby(level=0)["OrderDate"].min().apply(lambda x: x.strftime("%Y-%m"))
     )
     food_df.reset_index(inplace=True)
-    return food_df
+#     return food_df
 
 with st.expander("Show the 'Food' data Frame"):
     food_df = load_data()
