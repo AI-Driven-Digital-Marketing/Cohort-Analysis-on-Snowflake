@@ -127,7 +127,7 @@ def load_data():
     
     
     
-#     return food_df
+    return food_df
 
 
 food_df = load_data()
