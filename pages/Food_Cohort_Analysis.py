@@ -89,6 +89,5 @@ def load_data():
     # write our codes here -- INFO Teams!
     
     return food_df
-
-
 food_df = load_data()
+food_df
