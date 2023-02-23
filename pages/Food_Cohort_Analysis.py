@@ -123,11 +123,11 @@ def load_data():
 #                                  "TotalOrders as TotalOrders", "TotalRevenue as TotalRevenue",
 #                                  "CohortPeriod as CohortPeriod")
 
-    cohorts.show()
+#     cohorts.show()
     
     
     
-#     return food_df
+    return food_df
 
 
 food_df = load_data()
