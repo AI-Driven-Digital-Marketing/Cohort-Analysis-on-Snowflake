@@ -89,7 +89,7 @@ def load_data():
     # Write our codes here -- INFO Teams!
     # Process data
     food_df['orderdate'] = pd.to_date(food_df['orderdate'], format = '%Y/%m/%d')   
-    food_df['pickupdate'] = pd.to_date(food_df['pickupdate'], format ='%Y/%m/%d')
+    #food_df['pickupdate'] = pd.to_date(food_df['pickupdate'], format ='%Y/%m/%d')
     
     return food_df
 
