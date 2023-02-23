@@ -14,10 +14,21 @@ import logging
 
 # The code below is for the title and logo for this page.
 st.set_page_config(page_title="Cohort Analysis on the Bikes dataset", page_icon="🚲")
-
+bg_image = '''
+<style>
+[data-testid="stAppViewContainer"]{
+background-image: url(https://lp-cms-production.imgix.net/2022-01/GettyRF_475680439.jpg?auto=format&q=75&w=1920);
+backgroud-size:cover;
+}
+</style>
+'''
+#st.markdown(bg_image, unsafe_allow_html=True)
+#st.set_page_config(layout="wide")
+st.sidebar.markdown("# Bike Cohort Analysis")
 st.image(
     "bike.png",
-    width=160,
+    width  = 160
+    #use_column_width = True,
 )
 
 st.title("Cohort Analysis → `Bikes` dataset")
@@ -39,9 +50,7 @@ with st.expander("About this app"):
     st.markdown(
         """
 
-    This dataset comes from the hypothetical `Sprocket Central Pty Ltd`, a medium size bikes & cycling accessories organisation.
-
-    The data spans from `January 1, 2017` to `December 31, 2017` and is available in CSV format (downloadable [here](https://www.kaggle.com/datasets/archit9406/customer-transaction-dataset)).
+    This dataset comes from the hypothetical KPMG.
 
     Each row in the dataset contains information about an individual bike purchase:
 
@@ -240,7 +249,7 @@ try:
         colorscale="Bluyl",
     )
 
-    fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.5)
+    fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.2)
     fig.layout.xaxis.title = "Cohort Group"
     fig.layout.yaxis.title = "Cohort Period"
     fig["layout"]["title"]["font"] = dict(size=25)
