@@ -90,14 +90,14 @@ def load_data():
 
     grouped = df.groupby(["CohortGroup", "OrderPeriod"])
 
-    # count the unique users, orders, and total revenue per Group + Period
-    cohorts = grouped.agg(
-    {"UserId": pd.Series.nunique, "OrderId": pd.Series.nunique, "TotalCharges": np.sum}
-)
+#     # count the unique users, orders, and total revenue per Group + Period
+#     cohorts = grouped.agg(
+#     {"UserId": pd.Series.nunique, "OrderId": pd.Series.nunique, "TotalCharges": np.sum}
+# )
 
-# make the column names more meaningful
-    cohorts.rename(columns={"UserId": "TotalUsers", "OrderId": "TotalOrders"}, inplace=True)
-    cohorts.head()
+# # make the column names more meaningful
+#     cohorts.rename(columns={"UserId": "TotalUsers", "OrderId": "TotalOrders"}, inplace=True)
+#     cohorts.head()
     
     return food_df
 
