@@ -100,28 +100,28 @@ def load_data():
                      countDistinct("OrderId").alias("TotalOrders"), 
                      sum("TotalCharges").alias("TotalRevenue"))
 
-    # Define a function to calculate the CohortPeriod
-    def cohort_period(df):
-        """
-        Creates a `CohortPeriod` column, which is the Nth period based on the user's first purchase.
-        """
-        return df.withColumn("CohortPeriod", (col("OrderPeriod").cast("long") - col("FirstOrderPeriod")) / 30 + 1)
+#     # Define a function to calculate the CohortPeriod
+#     def cohort_period(df):
+#         """
+#         Creates a `CohortPeriod` column, which is the Nth period based on the user's first purchase.
+#         """
+#         return df.withColumn("CohortPeriod", (col("OrderPeriod").cast("long") - col("FirstOrderPeriod")) / 30 + 1)
 
-    # Join the cohorts dataframe with a new dataframe that contains the first order period for each user
-    cohorts = cohorts.join(
-        df.select("UserId", "OrderPeriod")
-          .groupBy("UserId")
-          .agg(collect_list("OrderPeriod").getItem(0).alias("FirstOrderPeriod")),
-        on="UserId"
-    )
+#     # Join the cohorts dataframe with a new dataframe that contains the first order period for each user
+#     cohorts = cohorts.join(
+#         df.select("UserId", "OrderPeriod")
+#           .groupBy("UserId")
+#           .agg(collect_list("OrderPeriod").getItem(0).alias("FirstOrderPeriod")),
+#         on="UserId"
+#     )
 
-    # Calculate the CohortPeriod using the cohort_period function
-    cohorts = cohort_period(cohorts)
+#     # Calculate the CohortPeriod using the cohort_period function
+#     cohorts = cohort_period(cohorts)
 
-    # Rename the columns to be more meaningful
-    cohorts = cohorts.selectExpr("CohortGroup", "OrderPeriod", "TotalUsers as TotalUsers",
-                                 "TotalOrders as TotalOrders", "TotalRevenue as TotalRevenue",
-                                 "CohortPeriod as CohortPeriod")
+#     # Rename the columns to be more meaningful
+#     cohorts = cohorts.selectExpr("CohortGroup", "OrderPeriod", "TotalUsers as TotalUsers",
+#                                  "TotalOrders as TotalOrders", "TotalRevenue as TotalRevenue",
+#                                  "CohortPeriod as CohortPeriod")
 
     cohorts.show()
     
