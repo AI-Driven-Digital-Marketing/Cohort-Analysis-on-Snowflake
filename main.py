@@ -87,12 +87,13 @@ def connect2snowflake():
     snowpark_version = VERSION
     return session
 session = connect2snowflake()
+
 @st.cache_data
 def load_data():
 
     # Load data
-    #transaction_df = session.table('TRANSACTIONS').to_pandas()
-    transaction_df = session.sql('select * from TRANSACTIONS').toPandas()
+    transaction_df = pd.DataFrame(session.table('TRANSACTIONS').collect())
+    #transaction_df = session.sql('select * from TRANSACTIONS').toPandas()
     transaction_df.columns = [x.lower() for x in transaction_df.columns]
 
 
