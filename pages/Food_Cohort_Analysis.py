@@ -170,14 +170,9 @@ with col1:
 
 fig = go.Figure()
 fig.add_heatmap(
-        # x=retention.columns, y=retention.index, z=retention, colorscale="cividis"
         x=retention.columns,
         y=retention.index,
         z=retention,
-        # Best
-        # colorscale="Reds",
-        # colorscale="Sunsetdark",
-        #colorscale="Redor"
         colorscale="Viridis"
     )
 
