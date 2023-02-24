@@ -168,15 +168,6 @@ retention.index = retention.index.strftime('%Y-%m')
 retention.index
 
 
-try:
-    
     fig = go.Figure()
-    fig.add_heatmap(
-        # x=retention.columns, y=retention.index, z=retention, colorscale="cividis"
-        x=retention.columns,
-        y=retention.index,
-        z=retention,
-        # Best
-        # colorscale="Aggrnyl",
-        colorscale="Bluyl")
+
      
