@@ -124,7 +124,9 @@ def load_data():
     cohort_data = grouping['USERID'].apply(pd.Series.nunique)
     cohort_data = cohort_data.reset_index()
 
-
+    cohorts.rename(columns={"UserId": "TotalUsers", "OrderId": "TotalOrders"}, inplace=True)
+    cohorts.head()  
+    
      # Assigning column names to the dataframe created above
     cohort_counts = cohort_data.pivot(index='CohortMonth',
                                      columns ='CohortIndex',
@@ -164,53 +166,53 @@ with col1:
 
 # st.write("slider", slider_val, "checkbox", checkbox_val)
 
-cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
+# cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
 
-cohorts = cohorts.groupby(level=0).apply(cohort_period)
-cohorts.head()
+# cohorts = cohorts.groupby(level=0).apply(cohort_period)
+# cohorts.head()
 
-user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
-user_retention.head(10)
+# user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
+# user_retention.head(10)
 
-user_retention[["2009-06", "2009-07", "2009-08"]].plot(figsize=(10, 5))
-plt.title("Cohorts: User Retention")
-plt.xticks(np.arange(1, 12.1, 1))
-plt.xlim(1, 12)
-plt.ylabel("% of Cohort Purchasing")
-cohorts["TotalUsers"].head()
+# user_retention[["2009-06", "2009-07", "2009-08"]].plot(figsize=(10, 5))
+# plt.title("Cohorts: User Retention")
+# plt.xticks(np.arange(1, 12.1, 1))
+# plt.xlim(1, 12)
+# plt.ylabel("% of Cohort Purchasing")
+# cohorts["TOTALUSERS"].head()
 
-user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
-user_retention.head(10)
+# user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
+# user_retention.head(10)
 
-user_retention[["2009-06", "2009-07", "2009-08"]].plot(figsize=(10, 5))
-plt.title("Cohorts: User Retention")
-plt.xticks(np.arange(1, 12.1, 1))
-plt.xlim(1, 12)
-plt.ylabel("% of Cohort Purchasing")
+# user_retention[["2009-06", "2009-07", "2009-08"]].plot(figsize=(10, 5))
+# plt.title("Cohorts: User Retention")
+# plt.xticks(np.arange(1, 12.1, 1))
+# plt.xlim(1, 12)
+# plt.ylabel("% of Cohort Purchasing")
 
-user_retention = user_retention.T
+# user_retention = user_retention.T
 
-fig = go.Figure()
+# fig = go.Figure()
 
-fig.add_heatmap(
-    x=user_retention.columns,
-    y=user_retention.index,
-    z=user_retention,
-    # colorscale="Reds",
-    # colorscale="Sunsetdark",
-    colorscale="Redor"
-    # colorscale="Viridis",
-)
+# fig.add_heatmap(
+#     x=user_retention.columns,
+#     y=user_retention.index,
+#     z=user_retention,
+#     # colorscale="Reds",
+#     # colorscale="Sunsetdark",
+#     colorscale="Redor"
+#     # colorscale="Viridis",
+# )
 
-fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.5)
-fig.layout.xaxis.title = "Cohort Group"
-fig.layout.yaxis.title = "Cohort Period"
-fig["layout"]["title"]["font"] = dict(size=25)
-fig.layout.plot_bgcolor = "#efefef"  # Set the background color to white
-fig.layout.width = 750
-fig.layout.height = 750
-fig.layout.xaxis.tickvals = user_retention.columns
-fig.layout.yaxis.tickvals = user_retention.index
-fig.layout.margin.b = 100
-fig
+# fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.5)
+# fig.layout.xaxis.title = "Cohort Group"
+# fig.layout.yaxis.title = "Cohort Period"
+# fig["layout"]["title"]["font"] = dict(size=25)
+# fig.layout.plot_bgcolor = "#efefef"  # Set the background color to white
+# fig.layout.width = 750
+# fig.layout.height = 750
+# fig.layout.xaxis.tickvals = user_retention.columns
+# fig.layout.yaxis.tickvals = user_retention.index
+# fig.layout.margin.b = 100
+# fig
     
