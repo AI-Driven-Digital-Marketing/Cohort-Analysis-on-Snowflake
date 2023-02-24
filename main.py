@@ -179,7 +179,6 @@ transaction_df_new_slider_01 = transaction_df[["brand", "product_line","online_o
 #-----Bing End: Modify new_slider_01--------
 new_slider_01 = [col for col in transaction_df_new_slider_01]
 
-transaction_df_new_slider_01
 
 #----Bing Start: Add Profit------
 transaction_df_new_slider_02 = transaction_df[["list_price", "standard_cost","profit"]]
