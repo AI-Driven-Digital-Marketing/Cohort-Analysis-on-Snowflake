@@ -146,5 +146,26 @@ with st.expander("DataFrame"):
         ''' 2. Retention''')
     retention
     
-    
+with st.form("my_form"):
+# st.write("Inside the form")
+# slider_val = st.slider("Form slider")
+# checkbox_val = st.checkbox("Form checkbox")
+
+    cole, col1, cole = st.columns([0.1, 1, 0.1])
+
+with col1:  
+
+    TotalCharges_slider = st.slider(
+            "Total Charges (in $)", step=50, min_value=2, max_value=690
+        )
+        # Every form must have a submit button.
+
+    submitted = st.form_submit_button("Refine results")
+
+# st.write("slider", slider_val, "checkbox", checkbox_val)
+
+cohorts = cohorts[cohorts["TotalCharges"] > TotalCharges_slider]
+
+cohorts = cohorts.groupby(level=0).apply(cohort_period)
+cohorts.head()
     
