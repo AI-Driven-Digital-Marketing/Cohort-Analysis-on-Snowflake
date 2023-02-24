@@ -178,6 +178,5 @@ try:
         z=retention,
         # Best
         # colorscale="Aggrnyl",
-        colorscale="Bluyl",
-    )
-    fig
+        colorscale="Bluyl")
+     fig
