@@ -179,4 +179,4 @@ try:
         # Best
         # colorscale="Aggrnyl",
         colorscale="Bluyl")
-     fig
+     
