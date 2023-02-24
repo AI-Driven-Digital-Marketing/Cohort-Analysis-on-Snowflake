@@ -177,8 +177,8 @@ fig.add_heatmap(
         # Best
         # colorscale="Reds",
         # colorscale="Sunsetdark",
-        colorscale="Redor"
-        # colorscale="Viridis"
+        #colorscale="Redor"
+        colorscale="Viridis"
     )
 
 fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.2)
