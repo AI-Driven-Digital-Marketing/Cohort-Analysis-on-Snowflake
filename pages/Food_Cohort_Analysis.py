@@ -169,7 +169,7 @@ cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
 cohorts = cohorts.groupby(level=0).apply(cohort_period)
 cohorts.head()
 
-user_retention = cohorts["TotalUsers"].unstack(0).divide(cohort_group_size, axis=1)
+user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
 user_retention.head(10)
 
 user_retention[["2009-06", "2009-07", "2009-08"]].plot(figsize=(10, 5))
@@ -179,7 +179,7 @@ plt.xlim(1, 12)
 plt.ylabel("% of Cohort Purchasing")
 cohorts["TotalUsers"].head()
 
-user_retention = cohorts["TotalUsers"].unstack(0).divide(cohort_group_size, axis=1)
+user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
 user_retention.head(10)
 
 user_retention[["2009-06", "2009-07", "2009-08"]].plot(figsize=(10, 5))
