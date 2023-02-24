@@ -110,9 +110,12 @@ def load_data():
 
     # Load data
     transaction_df = pd.DataFrame(session.table('TRANSACTIONS').collect())
+
     #transaction_df = session.sql('select * from TRANSACTIONS').toPandas()
     transaction_df.columns = [x.lower() for x in transaction_df.columns]
-
+#-----Bing Start: New Column Profit------
+    transaction_df['profit'] = transaction_df['list_price'] - transaction_df['standard_cost']
+#-----Bing End: New Column Profit------
 
     # Process data
     transaction_df = transaction_df.replace(" ", np.NaN)
@@ -171,11 +174,17 @@ dtypes = transaction_df.dtypes.astype(str)
 # Show dtypes
 # dtypes
 
-transaction_df_new_slider_01 = transaction_df[["brand", "product_line"]]
+#-----Bing Start: Modify new_slider_01------
+transaction_df_new_slider_01 = transaction_df[["brand", "product_line","online_order"]]
+#-----Bing End: Modify new_slider_01--------
 new_slider_01 = [col for col in transaction_df_new_slider_01]
 
-transaction_df_new_slider_02 = transaction_df[["list_price", "standard_cost"]]
+transaction_df_new_slider_01
+
+#----Bing Start: Add Profit------
+transaction_df_new_slider_02 = transaction_df[["list_price", "standard_cost","profit"]]
 new_slider_02 = [col for col in transaction_df_new_slider_02]
+#----Bing End: Add Profit------
 
 st.write("")
 
@@ -186,6 +195,7 @@ with col1:
     MetricSlider01 = st.selectbox("Pick your 1st metric", new_slider_01)
 
     MetricSlider02 = st.selectbox("Pick your 2nd metric", new_slider_02, index=1)
+      
 
     st.write("")
 
@@ -209,10 +219,32 @@ with col2:
         transaction_df = transaction_df[
             transaction_df["product_line"].isin(multiselect)
         ]
+#------Bing Start: Add Online Order to MetricSlider01------
+    if MetricSlider01 == "online_order":
+        col_one_list = (
+            transaction_df_new_slider_01["online_order"].drop_duplicates().tolist()
+        )
+        Online_CheckBox = st.checkbox('Online Order')
+        Offline_CheckBox = st.checkbox('Offline Order')
+        
+        if Online_CheckBox and not Offline_CheckBox:
+            Online_Selection = [0]
+        if not Online_CheckBox and Offline_CheckBox:
+            Online_Selection = [1]
+        
+        if (Online_CheckBox and Offline_CheckBox) or (not Online_CheckBox and not Offline_CheckBox):
+            Online_Selection = [0,1]
+        transaction_df = transaction_df[
+        transaction_df["online_order"].isin(Online_Selection)
+    ]
+        
+#------Bing End: Add Online Order to MetricSlider01------
+        
 
+#------Bing Start: Add Profit to MetricSlider02------
     if MetricSlider02 == "list_price":
         list_price_slider = st.slider(
-            "List price (in $)", step=500, min_value=12, max_value=2091
+            "List price (in $)", step=1, min_value=12, max_value=2091
         )
         transaction_df = transaction_df[
             transaction_df["list_price"] > list_price_slider
@@ -220,12 +252,21 @@ with col2:
 
     elif MetricSlider02 == "standard_cost":
         standard_cost_slider = st.slider(
-            "Standard cost (in $)", step=500, min_value=7, max_value=1759
+            "Standard cost (in $)", step=1, min_value=7, max_value=1759
         )
         transaction_df = transaction_df[
             transaction_df["list_price"] > standard_cost_slider
         ]
-
+        
+    elif MetricSlider02 == "profit":
+        standard_cost_slider = st.slider(
+        "Profit (in $)", step=1, min_value= -540, max_value= 1700
+        )
+        transaction_df = transaction_df[
+            transaction_df["profit"] > standard_cost_slider
+        ]
+#------Bing End: Add Profit to MetricSlider02------
+        
 try:
 
     # Counting daily active user from each chort
