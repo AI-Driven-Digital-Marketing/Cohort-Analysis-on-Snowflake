@@ -107,8 +107,7 @@ def load_data():
 
 food_df = load_data()
 
-with st.expander("Show the `Food` dataframe"):
-    st.write(food_df)
+
 
 @st.cache_data
 def get_minmaxCharges():
@@ -176,3 +175,13 @@ fig.layout.yaxis.tickvals = retention.index
 fig.layout.plot_bgcolor = "#efefef"  # Set the background color to white
 fig.layout.margin.b = 100
 fig
+with st.expander("Show the `Food` dataframe"):
+    st.markdown(
+        ''' 1. Food-data''')
+    st.write(food_df)
+    st.markdown(
+        ''' 2. Retention''')
+    st.write(retention)
+    
+    
+    
