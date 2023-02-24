@@ -165,9 +165,17 @@ with col1:
     submitted = st.form_submit_button("Refine results")
 
     retention.index = retention.index.strftime('%Y-%m')
-    retention.index
+    
 
 
 fig = go.Figure()
-
+fig.add_heatmap(
+        # x=retention.columns, y=retention.index, z=retention, colorscale="cividis"
+        x=retention.columns,
+        y=retention.index,
+        z=retention,
+        # Best
+        # colorscale="Aggrnyl",
+        colorscale="Bluyl",
+    )
      
