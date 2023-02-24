@@ -164,8 +164,8 @@ with col1:
 
     submitted = st.form_submit_button("Refine results")
 
-retention.index = retention.index.strftime('%Y-%m')
-retention.index
+    retention.index = retention.index.strftime('%Y-%m')
+    retention.index
 
 
 fig = go.Figure()
