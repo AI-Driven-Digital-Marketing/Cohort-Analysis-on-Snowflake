@@ -182,6 +182,3 @@ with st.expander("Show the `Food` dataframe"):
     st.markdown(
         ''' 2. Retention''')
     st.write(retention)
-    
-    
-    
