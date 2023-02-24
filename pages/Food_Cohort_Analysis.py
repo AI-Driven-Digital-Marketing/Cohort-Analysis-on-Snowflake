@@ -180,8 +180,4 @@ try:
         # colorscale="Aggrnyl",
         colorscale="Bluyl",
     )
-
-
     fig
-
-
