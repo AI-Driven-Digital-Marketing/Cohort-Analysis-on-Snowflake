@@ -175,8 +175,7 @@ fig.add_heatmap(
         y=retention.index,
         z=retention,
         # Best
-        # colorscale="Aggrnyl",
-        colorscale="Bluyl",
+        colorscale="Aggrnyl",
     )
 
 fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.2)
