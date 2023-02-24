@@ -173,11 +173,11 @@ plt.figure(figsize=(16, 10))
 plt.title('Retention Rate in percentage:- Monthly Cohorts', fontsize = 14)
 
 # Creating the seaborn based heatmap
-sns.heatmap(retention, annot=True, fmt= '.0%',cmap='YlGnBu', vmin = 0.0 , vmax = 0.6)
-plt.ylabel('Cohort Month')
-plt.xlabel('Cohort Index')
-plt.yticks( rotation='360')
-plt.show()
+# sns.heatmap(retention, annot=True, fmt= '.0%',cmap='YlGnBu', vmin = 0.0 , vmax = 0.6)
+# plt.ylabel('Cohort Month')
+# plt.xlabel('Cohort Index')
+# plt.yticks( rotation='360')
+# plt.show()
 # st.write("slider", slider_val, "checkbox", checkbox_val)
 
 # cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
