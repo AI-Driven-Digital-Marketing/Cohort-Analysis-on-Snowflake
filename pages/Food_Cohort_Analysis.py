@@ -124,8 +124,8 @@ def load_data():
     cohort_data = grouping['USERID'].apply(pd.Series.nunique)
     cohort_data = cohort_data.reset_index()
 
-    cohorts.rename(columns={"UserId": "TotalUsers", "OrderId": "TotalOrders"}, inplace=True)
-    cohorts.head()  
+#     cohorts.rename(columns={"UserId": "TotalUsers", "OrderId": "TotalOrders"}, inplace=True)
+#     cohorts.head()  
     
      # Assigning column names to the dataframe created above
     cohort_counts = cohort_data.pivot(index='CohortMonth',
@@ -166,9 +166,9 @@ with col1:
 
 # st.write("slider", slider_val, "checkbox", checkbox_val)
 
-cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
+# cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
 
-cohorts = cohorts.groupby(level=0).apply(cohort_period)
+# cohorts = cohorts.groupby(level=0).apply(cohort_period)
 # cohorts.head()
 
 # user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
