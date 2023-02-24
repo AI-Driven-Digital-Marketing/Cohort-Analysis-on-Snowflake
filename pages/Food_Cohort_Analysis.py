@@ -168,6 +168,6 @@ retention.index = retention.index.strftime('%Y-%m')
 retention.index
 
 
-    fig = go.Figure()
+fig = go.Figure()
 
      
