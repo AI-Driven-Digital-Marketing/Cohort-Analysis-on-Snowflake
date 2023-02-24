@@ -164,7 +164,7 @@ with col1:
 
 # st.write("slider", slider_val, "checkbox", checkbox_val)
 
-cohorts = cohorts[cohorts["TotalCharges"] > TotalCharges_slider]
+cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
 
 cohorts = cohorts.groupby(level=0).apply(cohort_period)
 cohorts.head()
