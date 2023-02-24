@@ -20,15 +20,23 @@ bg_image = '''
 background-image: url(https://lp-cms-production.imgix.net/2022-01/GettyRF_475680439.jpg?auto=format&q=75&w=1920);
 backgroud-size:cover;
 }
+
+[data-testid="stHeader"]{
+background-color: rgba(0,0,0,0);
+}
+
+[data-testid="stToolbar"]{
+right : 2rem;}
+
 </style>
 '''
 #st.markdown(bg_image, unsafe_allow_html=True)
 #st.set_page_config(layout="wide")
 st.sidebar.markdown("# Bike Cohort Analysis")
 st.image(
-    "bike.png",
-    width  = 160
-    #use_column_width = True,
+    "TrevelBike.jpeg",
+    #width  = 160
+    use_column_width = True,
 )
 
 st.title("Cohort Analysis → `Bikes` dataset")
