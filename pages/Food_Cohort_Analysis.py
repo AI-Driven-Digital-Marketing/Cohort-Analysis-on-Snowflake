@@ -166,9 +166,9 @@ with col1:
 
 # st.write("slider", slider_val, "checkbox", checkbox_val)
 
-# cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
+cohorts = cohorts[cohorts["TOTALCHARGES"] > TotalCharges_slider]
 
-# cohorts = cohorts.groupby(level=0).apply(cohort_period)
+cohorts = cohorts.groupby(level=0).apply(cohort_period)
 # cohorts.head()
 
 # user_retention = cohorts["TOTALUSERS"].unstack(0).divide(cohort_group_size, axis=1)
