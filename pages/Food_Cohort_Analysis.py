@@ -169,6 +169,7 @@ retention.index
 
 
 try:
+    
     fig = go.Figure()
     fig.add_heatmap(
         # x=retention.columns, y=retention.index, z=retention, colorscale="cividis"
@@ -180,16 +181,7 @@ try:
         colorscale="Bluyl",
     )
 
-    fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.2)
-    fig.layout.xaxis.title = "Cohort Group"
-    fig.layout.yaxis.title = "Cohort Period"
-    fig["layout"]["title"]["font"] = dict(size=25)
-    fig.layout.width = 750
-    fig.layout.height = 750
-    fig.layout.xaxis.tickvals = retention.columns
-    fig.layout.yaxis.tickvals = retention.index
-    fig.layout.plot_bgcolor = "#efefef"  # Set the background color to white
-    fig.layout.margin.b = 100
+
     fig
 
 
