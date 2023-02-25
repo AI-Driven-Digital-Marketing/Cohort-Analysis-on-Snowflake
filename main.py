@@ -59,7 +59,8 @@ with st.expander("About this app"):
         """
 
     This dataset comes from the hypothetical KPMG.
-
+    We focus on transaction sheet to be dataset for cohort analysis use.
+    Objective: Find customer transaction retention funnel.
     Each row in the dataset contains information about an individual bike purchase:
 
     - Who bought it
