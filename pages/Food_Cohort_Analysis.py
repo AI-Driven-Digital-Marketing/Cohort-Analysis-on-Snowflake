@@ -161,6 +161,7 @@ fig.add_heatmap(
         x=retention.columns,
         y=retention.index,
         z=retention,
+        fmt='.0%',
         colorscale="Viridis",
     )
 
