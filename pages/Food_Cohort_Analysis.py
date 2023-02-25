@@ -60,8 +60,9 @@ with st.expander("About this app"):
         - How were the majority of these users acquired? Was there a specific marketing campaign that brought them in? 
         - Did they take advantage of a promotion at sign-up? 
         - The answers to these questions would inform future marketing and product efforts.
-    - we found that  
-
+    - Example: 2009-Feb and 2010-Feb second period retention rate is 20% and 19%, which are the most min RATE of second period.
+        - 2010-Jan second period retention rate is 50%,it is the highest rate. Any activity in here? Any version update in this period?
+        - We need also look at other metrics' movement such as revenue retention to justify product strategy. 
     """
     )
 
