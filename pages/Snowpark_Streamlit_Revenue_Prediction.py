@@ -24,10 +24,15 @@ def create_session():
 @st.cache_data
 def load_data():
     historical_data = session.table("BUDGET_ALLOCATIONS_AND_ROI").unpivot("Budget", "Channel", ["SearchEngine", "SocialMedia", "Video", "Email"]).filter(col("MONTH") != "July")
-    df_last_six_months_allocations = historical_data.drop("ROI").to_pandas()
-    df_last_six_months_roi = historical_data.drop(["CHANNEL", "BUDGET"]).distinct().to_pandas()
-    df_last_months_allocations = historical_data.filter(col("MONTH") == "June").to_pandas()
-    return historical_data.to_pandas(), df_last_six_months_allocations, df_last_six_months_roi, df_last_months_allocations
+    df_last_six_months_allocations = historical_data.drop("ROI")
+    df_last_six_months_roi = historical_data.drop(["CHANNEL", "BUDGET"]).distinct()
+    df_last_months_allocations = historical_data.filter(col("MONTH") == "June")
+    
+    historical_data = pd.DataFrame(historical_data.collect())
+    df_last_six_months_allocations = pd.DataFrame(df_last_six_months_allocations.collect())
+    df_last_six_months_roi = pd.DataFrame(df_last_six_months_roi.collect())
+    df_last_months_allocations = pd.DataFrame(df_last_months_allocations.collect())
+    return historical_data, df_last_six_months_allocations, df_last_six_months_roi, df_last_months_allocations
 
 # Streamlit config
 st.set_page_config("SportsCo Ad Spend Optimizer", APP_ICON_URL, "centered")
