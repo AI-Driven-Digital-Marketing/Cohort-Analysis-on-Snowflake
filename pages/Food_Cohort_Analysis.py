@@ -13,7 +13,7 @@ import json
 import logging 
 
 # The code below is for the title and logo for this page.
-st.set_page_config(page_title="Cohort Analysis on the Food dataset", page_icon="🍔")
+st.set_page_config(page_title= "Cohort Analysis on the Food dataset", page_icon="🍔")
 
 st.image(
     "Food.jpg",
@@ -28,21 +28,17 @@ st.write("")
 
 with st.expander("About this app"):
 
-    st.write("")
+    st.write(" ")
 
     st.markdown(
-        """
+    """
 
-    This dataset comes from the hypothetical KPMG.
+    This dataset comes from the hypothetical Relay Food company. The data spans from June 1, 2009 to September 3, 2010 and is available in CSV format (downloadable here).
 
-    Each row in the dataset contains information about an individual bike purchase:
-
+    Each row in the dataset contains information about an individual food order:
     - Who bought it
     - How much they paid
-    - The bike's `brand` and `product line`
-    - Its `class` and `size`
-    - What day the purchase happened
-    - The day the product was first sold
+    - The pick-up date
     """
     )
 
@@ -50,11 +46,11 @@ with st.expander("About this app"):
 
     st.markdown(
         """
-    The underlying code groups those purchases into cohorts and calculates the `retention rate` (split by month) so that one can answer the question:
+    The underlying code groups those purchases into monthly cohorts (with the user's cohort group based on their first order) and calculates the retention rate so that one can answer the question:
 
-    *if I'm making monthly changes to my store to get people to come back and buy more bikes, are those changes working?"*
+    if I'm making monthly changes to my shop to get people to come back and order more, are those changes working?"
 
-    These cohorts are then visualized and interpreted through a heatmap [powered by Plotly](https://plotly.com/python/).
+    These cohorts are then visualized and interpreted through a heatmap powered by Plotly.](https://plotly.com/python/).
 
     """
     )
@@ -101,8 +97,8 @@ def load_data():
     
 
 
-
     return food_df
+
 
 
 food_df = load_data()
