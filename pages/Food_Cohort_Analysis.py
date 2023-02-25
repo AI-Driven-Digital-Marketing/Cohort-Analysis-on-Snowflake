@@ -61,7 +61,12 @@ with st.expander("About this app"):
     )
 
     st.write("")
-
+    st.markdown(
+    '''
+    ### Method/Architecture
+    ''')
+    st.write("")
+    st.image('src/Architecture.png')    
     
 with st.expander("Cohort Analysis Architecture"):    
     st.image('src/Architecture.png')
