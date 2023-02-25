@@ -190,7 +190,7 @@ with st.expander("Show the `Food` dataframe"):
         ''' 2. Retention''')
     st.write(retention)
     
-With st.expander('Plot'):
+with st.expander('Plot'):
     retention[['2009-06', '2009-07', '2009-08']].plot(figsize=(10,5))
     plt.title('Cohorts: User Retention')
     plt.xticks(np.arange(1, 12.1, 1))
