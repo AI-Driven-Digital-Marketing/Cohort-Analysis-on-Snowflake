@@ -63,13 +63,11 @@ with st.expander("About this app"):
     st.write("")
     st.markdown(
     '''
-    ### Method/Architecture
+    ### Method/Architecture:
     ''')
     st.write("")
-    st.image('src/Architecture.png')    
+    st.image('src/Architecture.png', caption =' Cohort Analysis Architecture')    
     
-with st.expander("Cohort Analysis Architecture"):    
-    st.image('src/Architecture.png')
     
 # A function that will parse the date Time based cohort:  1 day of month
 def get_month(x):
