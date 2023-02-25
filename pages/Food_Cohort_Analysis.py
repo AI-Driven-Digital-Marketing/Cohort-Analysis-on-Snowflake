@@ -3,7 +3,6 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import datetime as dt
-import matplotlib.pyplot as plt
 # Snowpark for Python
 from snowflake.snowpark.session import Session
 from snowflake.snowpark.types import IntegerType, StringType, StructType, FloatType, StructField, DateType, Variant
@@ -182,6 +181,7 @@ fig.layout.yaxis.tickvals = retention.index
 fig.layout.plot_bgcolor = "#efefef"  # Set the background color to white
 fig.layout.margin.b = 100
 fig
+
 with st.expander("Show the `Food` dataframe"):
     st.markdown(
         ''' 1. Food-data''')
