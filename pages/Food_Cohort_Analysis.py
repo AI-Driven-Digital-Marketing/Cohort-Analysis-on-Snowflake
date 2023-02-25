@@ -46,16 +46,16 @@ with st.expander("About this app"):
 
     st.markdown(
         """
-    ### Objective:
+    ### 1.Objective:
     The underlying code groups those purchases into monthly cohorts (with the user's cohort group based on their first order) and calculates the
     `retention rate` so that one can answer the question:
     *if I'm making monthly changes to my shop to get people to come back and order more, are those changes working?"*
     These cohorts are then visualized and interpreted through a heatmap [powered by Plotly](https://plotly.com/python/).
     
-    ### Key Results:
-    1. 
-    2. 
-    3.
+    ### 2.Key Results:
+    - 2009 Jan 
+    -  
+    - 
 
     """
     )
@@ -63,7 +63,7 @@ with st.expander("About this app"):
     st.write("")
     st.markdown(
     '''
-    ### Method/Architecture:
+    ### 3.Method/Architecture:
     ''')
     st.write("")
     st.image('src/Architecture.png', caption =' Cohort Analysis Architecture')    
