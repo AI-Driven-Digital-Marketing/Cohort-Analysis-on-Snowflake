@@ -7,7 +7,7 @@
 ### Project2:
 | **--->** [1.Script](Analysis.ipynb) |
 
-| **--->** [2.Front-end](main.py) |
+| **--->** [2.Front-end](pages/Food_Cohort_Analysis.py) |
 
 | **--->** [2.Website by Streamlit](https://dduan-zw-cohort-analysis-on-snowflake-main-csxkkt.streamlit.app/Food_Cohort_Analysis) |
 
