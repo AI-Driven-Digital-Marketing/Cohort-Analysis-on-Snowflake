@@ -53,9 +53,14 @@ with st.expander("About this app"):
     These cohorts are then visualized and interpreted through a heatmap [powered by Plotly](https://plotly.com/python/).
     
     ### 2.Key Results:
-    - 2009 Jan 
-    -  
-    - 
+    - We can see from the above chart that fewer users tend to purchase as time goes on. 
+    - we can also see that the 2009-01 cohort is the strongest, which enables us to ask targeted questions about this cohort compared to others：
+        - Posterior data (Inference) <--> Prior data(Validation A/B test) 
+        - what other attributes (besides first purchase month) do these users share which might be causing them to stick around? 
+        - How were the majority of these users acquired? Was there a specific marketing campaign that brought them in? 
+        - Did they take advantage of a promotion at sign-up? 
+        - The answers to these questions would inform future marketing and product efforts.
+    - we found that  
 
     """
     )
