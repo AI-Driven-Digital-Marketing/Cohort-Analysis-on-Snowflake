@@ -5,15 +5,17 @@
 
 ## Quick Portral
 ### Project2:
-| **--->** [1.]() |
+| **--->** [1.Script]() |
 
 | **--->** [2.Website by Streamlit]() |
 
 | **--->** [3.CodeLab]() |
 
+## 1.Architecture
 
-
-## 1.Introduction
+    <div align=center>
+    <img src="src/Architecture.png" width="800px">
+    </div>
 
 ## 2.
 
