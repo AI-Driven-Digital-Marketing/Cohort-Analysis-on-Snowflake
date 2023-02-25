@@ -57,12 +57,12 @@ with st.expander("About this app"):
 
     st.markdown(
         """
-
+    ### 1.Dataset
     This dataset comes from the hypothetical KPMG.
     We focus on transaction sheet to be dataset for cohort analysis use.
     Objective: Find customer transaction retention funnel.
     Each row in the dataset contains information about an individual bike purchase:
-
+    
     - Who bought it
     - How much they paid
     - The bike's `brand` and `product line`
@@ -76,6 +76,7 @@ with st.expander("About this app"):
 
     st.markdown(
         """
+    ### 2. Objective:
     The underlying code groups those purchases into cohorts and calculates the `retention rate` (split by month) so that one can answer the question:
 
     *if I'm making monthly changes to my store to get people to come back and buy more bikes, are those changes working?"*
