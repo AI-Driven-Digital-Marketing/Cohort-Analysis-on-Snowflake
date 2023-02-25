@@ -192,8 +192,3 @@ with st.expander("Show the `Food` dataframe"):
     
 with st.expander('Plot'):
     retention[['2009-06', '2009-07', '2009-08']].plot(figsize=(10,5))
-    plt.title('Cohorts: User Retention')
-    plt.xticks(np.arange(1, 12.1, 1))
-    plt.xlim(1, 12)
-    plt.ylabel('% of Cohort Purchasing')
-    plt
