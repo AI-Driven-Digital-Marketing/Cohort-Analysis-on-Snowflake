@@ -1,8 +1,0 @@
-name: SNPark
-dependencies:
-  - snowflake-snowpark-python
-  - numpy
-  - pandas
-  - plotly
-  - matplotlib
-  - seaborn
