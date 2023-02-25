@@ -14,7 +14,7 @@
 ## 1.Architecture
 
 <div align=center>
-<img src="src/Architecture.png" width="800px">
+<img src="src/Architecture.png" width="500px">
 </div>
 
 ## 2.
