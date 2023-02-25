@@ -58,17 +58,6 @@ with st.expander("About this app"):
 
     st.write("")
 
-with st.expander("Cohort Analysis Architecture"):
-
-    st.image("src/Architecture.png ")
-
-
-    
-    
-    
-    
-    
-    
 # A function that will parse the date Time based cohort:  1 day of month
 def get_month(x):
     return dt.datetime(x.year, x.month, 1)
