@@ -161,7 +161,7 @@ fig.add_heatmap(
         x=retention.columns,
         y=retention.index,
         z=retention,
-        colorscale="Viridis", fmt='.0%',
+        colorscale="Viridis",
     )
 
 fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.2)
