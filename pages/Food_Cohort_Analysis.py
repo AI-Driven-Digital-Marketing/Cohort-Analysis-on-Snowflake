@@ -156,13 +156,16 @@ cohort_sizes = cohort_counts.iloc[:,0]
 retention = cohort_counts.divide(cohort_sizes, axis=0)
 retention.index = retention.index.strftime('%Y-%m')
 
+percent_retention = (retention * 100).round(1)
+
 fig = go.Figure()
 fig.add_heatmap(
         x=retention.columns,
         y=retention.index,
         z=retention,
-        fmt='.0%',
-        colorscale="Viridis",
+        text=percent_retention,
+        hoverinfo='text', 
+        colorscale="Viridis", 
     )
 
 fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.2)
