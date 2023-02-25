@@ -46,7 +46,12 @@ with st.expander("About this app"):
 
     st.markdown(
         """
+    The underlying code groups those purchases into monthly cohorts (with the user's cohort group based on their first order) and calculates the
+    `retention rate` so that one can answer the question:
+    
+    *if I'm making monthly changes to my shop to get people to come back and order more, are those changes working?"*
 
+    These cohorts are then visualized and interpreted through a heatmap [powered by Plotly](https://plotly.com/python/).
 
     """
     )
