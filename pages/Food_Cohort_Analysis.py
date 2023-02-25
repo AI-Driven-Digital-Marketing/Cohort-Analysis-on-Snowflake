@@ -201,4 +201,3 @@ with st.expander("Show the `Food` dataframe"):
         ''' 2. Retention''')
     st.write(retention)
     
-
