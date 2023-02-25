@@ -3,6 +3,7 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import datetime as dt
+import matplotlib.pyplot as plt
 # Snowpark for Python
 from snowflake.snowpark.session import Session
 from snowflake.snowpark.types import IntegerType, StringType, StructType, FloatType, StructField, DateType, Variant
@@ -188,3 +189,11 @@ with st.expander("Show the `Food` dataframe"):
     st.markdown(
         ''' 2. Retention''')
     st.write(retention)
+    
+With st.expander('Plot'):
+    retention[['2009-06', '2009-07', '2009-08']].plot(figsize=(10,5))
+    plt.title('Cohorts: User Retention')
+    plt.xticks(np.arange(1, 12.1, 1))
+    plt.xlim(1, 12)
+    plt.ylabel('% of Cohort Purchasing')
+    plt
