@@ -34,7 +34,7 @@ with st.expander("About this app"):
 
     st.markdown(
     """
-    ### Dataset
+    ### 1.Dataset
     This dataset comes from the hypothetical Relay Food company. The data spans from June 1, 2009 to September 3, 2010 and is available in CSV format (downloadable here).
 
     Each row in the dataset contains information about an individual food order:
@@ -48,13 +48,13 @@ with st.expander("About this app"):
 
     st.markdown(
         """
-    ### 1.Objective:
+    ### 2.Objective:
     The underlying code groups those purchases into monthly cohorts (with the user's cohort group based on their first order) and calculates the
     `retention rate` so that one can answer the question:
     *if I'm making monthly changes to my shop to get people to come back and order more, are those changes working?"*
     These cohorts are then visualized and interpreted through a heatmap [powered by Plotly](https://plotly.com/python/).
     
-    ### 2.Key Results:
+    ### 3.Key Results:
     - We can see from the above chart that fewer users tend to purchase as time goes on. 
     - we can also see that the 2009-01 cohort is the strongest, which enables us to ask targeted questions about this cohort compared to others：
         - Posterior data (Inference) <--> Prior data(Validation A/B test) 
