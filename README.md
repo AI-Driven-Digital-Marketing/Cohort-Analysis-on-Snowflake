@@ -5,13 +5,14 @@
 
 ## Quick Portral
 ### Project2:
-| **--->** [1.Script]() |
+| **--->** [1.Script](Analysis.ipynb) |
 
-| **--->** [2.Website by Streamlit]() |
+| **--->** [2.Front-end](main.py) |
 
-| **--->** [3.CodeLab]() |
+| **--->** [2.Website by Streamlit](https://dduan-zw-cohort-analysis-on-snowflake-main-csxkkt.streamlit.app/Food_Cohort_Analysis) |
 
-## 1.Architecture
+
+## 1.Overall Architecture
 
 <div align=center>
 <img src="src/Architecture.png" width="500px">
