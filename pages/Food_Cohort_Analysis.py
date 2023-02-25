@@ -32,7 +32,7 @@ with st.expander("About this app"):
 
     st.markdown(
     """
-
+    ### Dataset
     This dataset comes from the hypothetical Relay Food company. The data spans from June 1, 2009 to September 3, 2010 and is available in CSV format (downloadable here).
 
     Each row in the dataset contains information about an individual food order:
@@ -46,12 +46,16 @@ with st.expander("About this app"):
 
     st.markdown(
         """
+    ### Objective:
     The underlying code groups those purchases into monthly cohorts (with the user's cohort group based on their first order) and calculates the
     `retention rate` so that one can answer the question:
-    
     *if I'm making monthly changes to my shop to get people to come back and order more, are those changes working?"*
-
     These cohorts are then visualized and interpreted through a heatmap [powered by Plotly](https://plotly.com/python/).
+    
+    ### Key Results:
+    1. 
+    2. 
+    3.
 
     """
     )
@@ -167,7 +171,7 @@ fig.add_heatmap(
         z=retention,
         text=percent_retention,
         hoverinfo='text', 
-        colorscale="Viridis",
+        colorscale="Sunsetdark",
     )
 
 fig.update_layout(title_text="Monthly cohorts showing retention rates", title_x=0.2)
