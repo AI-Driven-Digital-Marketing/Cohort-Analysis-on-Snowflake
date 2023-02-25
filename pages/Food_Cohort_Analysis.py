@@ -25,7 +25,9 @@ st.title("Cohort Analysis → `Food` dataset")
 st.write("")
 
 
-
+with st.expander("Methodology/Architecture"):
+    st.image('src/Architecture.png', caption =' Cohort Analysis Architecture') 
+    
 with st.expander("About this app"):
 
     st.write(" ")
@@ -67,12 +69,8 @@ with st.expander("About this app"):
     )
 
     st.write("")
-    st.markdown(
-    '''
-    ### 3.Method/Architecture:
-    ''')
-    st.write("")
-    st.image('src/Architecture.png', caption =' Cohort Analysis Architecture')    
+
+      
     
     
 # A function that will parse the date Time based cohort:  1 day of month
