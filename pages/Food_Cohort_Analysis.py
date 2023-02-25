@@ -157,7 +157,7 @@ retention = cohort_counts.divide(cohort_sizes, axis=0)
 retention.index = retention.index.strftime('%Y-%m')
 
 
-percent_retention = (retention * 100)
+percent_retention = (retention * 100).round(1)
 
 fig = go.Figure()
 fig.add_heatmap(
