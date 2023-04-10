@@ -9,7 +9,13 @@
 | **--->** [2.Front-end](pages/Food_Cohort_Analysis.py) |
 
 | **--->** [2.Website by Streamlit](https://dduan-zw-cohort-analysis-on-snowflake-main-csxkkt.streamlit.app/Food_Cohort_Analysis) |
-
+### Tech Stacks
+- Python
+- Streamlit
+- Snowflake DW
+- SnowPark
+- AWS S3
+- Cohort Analysis
 
 ## 1.Overall Architecture
 
